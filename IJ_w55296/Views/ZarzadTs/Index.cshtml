@@ -1,31 +1,20 @@
-﻿@model PagedList.IPagedList<IJ_w55296.ZarzadT>
-@using PagedList.Mvc;
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+﻿@model IEnumerable<IJ_w55296.ZarzadT>
 
-@{
-    ViewBag.Title = "Index";
-}
+<<h2>Index</h2>
 
-<h2>Index</h2>
-@using (Html.BeginForm("Index", "ZarzadTs", FormMethod.Get))
-{
-    <p>
-        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
-        <input type="submit" value="Search" />
-    </p>
-}
 <table class="table">
     <tr>
         <th>
-            @Html.ActionLink("Nazwisko", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.DisplayNameFor(model =>model.Nazwisko )
         </th>
         <th>
-            Imie
-        <th>
-            @Html.ActionLink("Funkcja", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.DisplayNameFor(model => model.Imie)
         </th>
         <th>
-            @Html.ActionLink("Organizacja", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            @Html.DisplayNameFor(model => model.Funkcja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrganizacjeT.Nazwa)
         </th>
         <th></th>
     </tr>
@@ -45,15 +34,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.OrganizacjeT.Nazwa)
             </td>
+
             <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.ZarzadID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrganizacjaID })
             </td>
         </tr>
     }
 
 </table>
-<br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-@Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<IJ_w55296.OrganizacjeT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KRS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Wojewodztwo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aktywnosc)
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KRS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wojewodztwo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Miasto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aktywnosc)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrganizacjaID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrganizacjaID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrganizacjaID })
+            </td>
+        </tr>
+    }
+
+</table>
+

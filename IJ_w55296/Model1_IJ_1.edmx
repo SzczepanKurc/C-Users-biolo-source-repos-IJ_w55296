@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabazeFirst_3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrganizacjeT">
+          <Key>
+            <PropertyRef Name="OrganizacjaID" />
+          </Key>
+          <Property Name="OrganizacjaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="200" />
+          <Property Name="KRS" Type="nvarchar" MaxLength="10" />
+          <Property Name="NIP" Type="nvarchar" MaxLength="10" />
+          <Property Name="Wojewodztwo" Type="nvarchar" MaxLength="20" />
+          <Property Name="Powiat" Type="nvarchar" MaxLength="60" />
+          <Property Name="Gmina" Type="nvarchar" MaxLength="60" />
+          <Property Name="Miasto" Type="nvarchar" MaxLength="60" />
+          <Property Name="KodPocztowy" Type="nvarchar" MaxLength="6" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="60" />
+          <Property Name="ZakresDzialan" Type="nvarchar" MaxLength="257" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="TelefonKom" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdresWWW" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataZalozenia" Type="date" />
+          <Property Name="DataZawieszenia" Type="date" />
+          <Property Name="DataWznowienia" Type="date" />
+          <Property Name="FormaPrawna" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aktywnosc" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ZarzadT">
+          <Key>
+            <PropertyRef Name="ZarzadID" />
+          </Key>
+          <Property Name="ZarzadID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="50" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="50" />
+          <Property Name="Funkcja" Type="nvarchar" MaxLength="80" />
+          <Property Name="OrganizacjaID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_ZarzadT_dbo_OrganizacjeT">
+          <End Role="OrganizacjeT" Type="Self.OrganizacjeT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ZarzadT" Type="Self.ZarzadT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganizacjeT">
+              <PropertyRef Name="OrganizacjaID" />
+            </Principal>
+            <Dependent Role="ZarzadT">
+              <PropertyRef Name="OrganizacjaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabazeFirst_3ModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrganizacjeT" EntityType="Self.OrganizacjeT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZarzadT" EntityType="Self.ZarzadT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_ZarzadT_dbo_OrganizacjeT" Association="Self.FK_dbo_ZarzadT_dbo_OrganizacjeT">
+            <End Role="OrganizacjeT" EntitySet="OrganizacjeT" />
+            <End Role="ZarzadT" EntitySet="ZarzadT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabazeFirst_3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrganizacjeT">
+          <Key>
+            <PropertyRef Name="OrganizacjaID" />
+          </Key>
+          <Property Name="OrganizacjaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="KRS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Wojewodztwo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Powiat" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Gmina" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="Miasto" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="Ulica" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ZakresDzialan" Type="String" MaxLength="257" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="TelefonKom" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdresWWW" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DataZalozenia" Type="DateTime" Precision="0" />
+          <Property Name="DataZawieszenia" Type="DateTime" Precision="0" />
+          <Property Name="DataWznowienia" Type="DateTime" Precision="0" />
+          <Property Name="FormaPrawna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aktywnosc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ZarzadT" Relationship="Self.FK_dbo_ZarzadT_dbo_OrganizacjeT" FromRole="OrganizacjeT" ToRole="ZarzadT" />
+        </EntityType>
+        <EntityType Name="ZarzadT">
+          <Key>
+            <PropertyRef Name="ZarzadID" />
+          </Key>
+          <Property Name="ZarzadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Funkcja" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizacjaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrganizacjeT" Relationship="Self.FK_dbo_ZarzadT_dbo_OrganizacjeT" FromRole="ZarzadT" ToRole="OrganizacjeT" />
+        </EntityType>
+        <Association Name="FK_dbo_ZarzadT_dbo_OrganizacjeT">
+          <End Role="OrganizacjeT" Type="Self.OrganizacjeT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ZarzadT" Type="Self.ZarzadT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrganizacjeT">
+              <PropertyRef Name="OrganizacjaID" />
+            </Principal>
+            <Dependent Role="ZarzadT">
+              <PropertyRef Name="OrganizacjaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabazeFirst_3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+          <EntitySet Name="OrganizacjeT" EntityType="Self.OrganizacjeT" />
+          <EntitySet Name="ZarzadT" EntityType="Self.ZarzadT" />
+          <AssociationSet Name="FK_dbo_ZarzadT_dbo_OrganizacjeT" Association="Self.FK_dbo_ZarzadT_dbo_OrganizacjeT">
+            <End Role="OrganizacjeT" EntitySet="OrganizacjeT" />
+            <End Role="ZarzadT" EntitySet="ZarzadT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabazeFirst_3ModelStoreContainer" CdmEntityContainer="DatabazeFirst_3Entities">
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="DatabazeFirst_3Model.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrganizacjeT">
+            <EntityTypeMapping TypeName="DatabazeFirst_3Model.OrganizacjeT">
+              <MappingFragment StoreEntitySet="OrganizacjeT">
+                <ScalarProperty Name="OrganizacjaID" ColumnName="OrganizacjaID" />
+                <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+                <ScalarProperty Name="KRS" ColumnName="KRS" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="Wojewodztwo" ColumnName="Wojewodztwo" />
+                <ScalarProperty Name="Powiat" ColumnName="Powiat" />
+                <ScalarProperty Name="Gmina" ColumnName="Gmina" />
+                <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="ZakresDzialan" ColumnName="ZakresDzialan" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="TelefonKom" ColumnName="TelefonKom" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AdresWWW" ColumnName="AdresWWW" />
+                <ScalarProperty Name="DataZalozenia" ColumnName="DataZalozenia" />
+                <ScalarProperty Name="DataZawieszenia" ColumnName="DataZawieszenia" />
+                <ScalarProperty Name="DataWznowienia" ColumnName="DataWznowienia" />
+                <ScalarProperty Name="FormaPrawna" ColumnName="FormaPrawna" />
+                <ScalarProperty Name="Aktywnosc" ColumnName="Aktywnosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZarzadT">
+            <EntityTypeMapping TypeName="DatabazeFirst_3Model.ZarzadT">
+              <MappingFragment StoreEntitySet="ZarzadT">
+                <ScalarProperty Name="ZarzadID" ColumnName="ZarzadID" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Funkcja" ColumnName="Funkcja" />
+                <ScalarProperty Name="OrganizacjaID" ColumnName="OrganizacjaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

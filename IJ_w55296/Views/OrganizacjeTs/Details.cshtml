@@ -1,0 +1,151 @@
+﻿@model IJ_w55296.OrganizacjeT
+
+
+@{
+    ViewBag.Title = "Details";
+ }
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrganizacjeT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nazwa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nazwa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KRS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KRS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wojewodztwo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wojewodztwo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Powiat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Powiat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gmina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gmina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Miasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Miasto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KodPocztowy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodPocztowy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ulica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ulica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataZalozenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataZalozenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataZawieszenia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataZawieszenia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataWznowienia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataWznowienia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaPrawna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaPrawna)
+        </dd>
+
+        <dd>
+
+            <hr />
+
+            <h5>Menagement</h5>
+
+            <table class="table">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Function</th>
+                </tr>
+                @foreach (var item in Model.ZarzadT)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nazwisko)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Imie)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Funkcja)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditMenagement", new { id = item.ZarzadID })
+                        </td>
+                    </tr>
+                }
+            </table>
+            <p>
+                @Html.ActionLink("Create New", "CreateMenagement", new { id = Model.OrganizacjaID })
+            </p>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrganizacjaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

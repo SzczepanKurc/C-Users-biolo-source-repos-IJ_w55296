@@ -3,19 +3,14 @@
 @{
     ViewBag.Title = "Edit";
 }
-
-<h2>Edit</h2>
-
+<hr />
+<h4>@Html.DisplayFor(model => model.Nazwa)</h4>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>OrganizacjeT</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.OrganizacjaID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Miasto, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -24,7 +19,6 @@
                 @Html.ValidationMessageFor(model => model.Miasto, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.KodPocztowy, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -32,7 +26,6 @@
                 @Html.ValidationMessageFor(model => model.KodPocztowy, "", new { @class = "text-danger" })
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Ulica, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -73,27 +66,15 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataZawieszenia, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataZawieszenia, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataZawieszenia, "", new { @class = "text-danger" })
+        <div class="col-md-offset-1">
+            <div class="radio-inline">
+                @Html.RadioButtonFor(model => model.Aktywnosc, "AKTYWNA", htmlAttributes: new { @class = "col-md-2" })
+                @Html.Label("Aktywna", htmlAttributes: new { @class = "col" })
             </div>
-        </div>
+            <div class="radio-inline">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DataWznowienia, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataWznowienia, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DataWznowienia, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Aktywnosc, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Aktywnosc, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Aktywnosc, "", new { @class = "text-danger" })
+                @Html.RadioButtonFor(model => model.Aktywnosc, "NIEAKTYWNA", htmlAttributes: new { @class = "col-md-2" })
+                @Html.Label("Nieaktywna", htmlAttributes: new { @class = "col" })
             </div>
         </div>
 
@@ -104,9 +85,8 @@
         </div>
     </div>
 }
-
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Index", "Index")
 </div>
 
 @section Scripts {

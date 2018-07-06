@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DatabazeFirst_3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DatabazeFirst_3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__RefactorLog">
           <Key>
             <PropertyRef Name="OperationKey" />
@@ -18,21 +18,17 @@
           <Property Name="OrganizacjaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="nvarchar" MaxLength="200" />
           <Property Name="KRS" Type="nvarchar" MaxLength="10" />
-          <Property Name="NIP" Type="nvarchar" MaxLength="10" />
           <Property Name="Wojewodztwo" Type="nvarchar" MaxLength="20" />
           <Property Name="Powiat" Type="nvarchar" MaxLength="60" />
           <Property Name="Gmina" Type="nvarchar" MaxLength="60" />
           <Property Name="Miasto" Type="nvarchar" MaxLength="60" />
           <Property Name="KodPocztowy" Type="nvarchar" MaxLength="6" />
           <Property Name="Ulica" Type="nvarchar" MaxLength="60" />
-          <Property Name="ZakresDzialan" Type="nvarchar" MaxLength="257" />
-          <Property Name="Telefon" Type="int" />
-          <Property Name="TelefonKom" Type="int" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="20" />
+          <Property Name="TelefonKom" Type="nvarchar" MaxLength="20" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="AdresWWW" Type="nvarchar" MaxLength="50" />
           <Property Name="DataZalozenia" Type="date" />
-          <Property Name="DataZawieszenia" Type="date" />
-          <Property Name="DataWznowienia" Type="date" />
           <Property Name="FormaPrawna" Type="nvarchar" MaxLength="50" />
           <Property Name="Aktywnosc" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -69,8 +65,7 @@
             <End Role="ZarzadT" EntitySet="ZarzadT" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DatabazeFirst_3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -87,21 +82,17 @@
           <Property Name="OrganizacjaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="KRS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="NIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Wojewodztwo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Powiat" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="Gmina" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="Miasto" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
           <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
           <Property Name="Ulica" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
-          <Property Name="ZakresDzialan" Type="String" MaxLength="257" FixedLength="false" Unicode="true" />
-          <Property Name="Telefon" Type="Int32" />
-          <Property Name="TelefonKom" Type="Int32" />
+          <Property Name="Telefon" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="TelefonKom" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="AdresWWW" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DataZalozenia" Type="DateTime" Precision="0" />
-          <Property Name="DataZawieszenia" Type="DateTime" Precision="0" />
-          <Property Name="DataWznowienia" Type="DateTime" Precision="0" />
           <Property Name="FormaPrawna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Aktywnosc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ZarzadT" Relationship="Self.FK_dbo_ZarzadT_dbo_OrganizacjeT" FromRole="OrganizacjeT" ToRole="ZarzadT" />
@@ -159,21 +150,17 @@
                 <ScalarProperty Name="OrganizacjaID" ColumnName="OrganizacjaID" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="KRS" ColumnName="KRS" />
-                <ScalarProperty Name="NIP" ColumnName="NIP" />
                 <ScalarProperty Name="Wojewodztwo" ColumnName="Wojewodztwo" />
                 <ScalarProperty Name="Powiat" ColumnName="Powiat" />
                 <ScalarProperty Name="Gmina" ColumnName="Gmina" />
                 <ScalarProperty Name="Miasto" ColumnName="Miasto" />
                 <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
                 <ScalarProperty Name="Ulica" ColumnName="Ulica" />
-                <ScalarProperty Name="ZakresDzialan" ColumnName="ZakresDzialan" />
                 <ScalarProperty Name="Telefon" ColumnName="Telefon" />
                 <ScalarProperty Name="TelefonKom" ColumnName="TelefonKom" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="AdresWWW" ColumnName="AdresWWW" />
                 <ScalarProperty Name="DataZalozenia" ColumnName="DataZalozenia" />
-                <ScalarProperty Name="DataZawieszenia" ColumnName="DataZawieszenia" />
-                <ScalarProperty Name="DataWznowienia" ColumnName="DataWznowienia" />
                 <ScalarProperty Name="FormaPrawna" ColumnName="FormaPrawna" />
                 <ScalarProperty Name="Aktywnosc" ColumnName="Aktywnosc" />
               </MappingFragment>

@@ -4,17 +4,15 @@
     ViewBag.Title = "EditMenagement";
 }
 
-<h2>EditMenagement</h2>
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-   
+    <hr />
+    <h4>@Html.DisplayFor(model => model.OrganizacjeT.Nazwa)</h4>
+
     <div class="form-horizontal">
-        <h4>ZarzadT</h4>
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ZarzadID)
 
@@ -53,7 +51,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Index", "Index")
 </div>
 
 @section Scripts {
